@@ -81,11 +81,7 @@ class PPIPNMessage
             return $this->isIpnVerified;
         } else {
             $request = self::IPN_CMD;
-            if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc() == 1) {
-                $get_magic_quotes_exists = true;
-            } else {
-                $get_magic_quotes_exists = false;
-            }
+            $get_magic_quotes_exists = false;
             foreach ($this->ipnData as $key => $value) {
                 if ($get_magic_quotes_exists) {
                     $value = urlencode(stripslashes($value));
